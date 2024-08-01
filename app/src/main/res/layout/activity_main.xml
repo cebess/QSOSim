@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="Transmit speed:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/generateButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:text="Generate"
+        app:layout_constraintStart_toEndOf="@+id/sendButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:text="Send"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <Button
+        android:id="@+id/stopButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="2dp"
+        android:text="Stop"
+        app:layout_constraintStart_toEndOf="@+id/infoButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <CheckBox
+        android:id="@+id/noisecheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="QRN"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
+
+    <CheckBox
+        android:id="@+id/hideQSOCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:text="Hide QSO"
+        app:layout_constraintStart_toEndOf="@+id/noisecheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/generateButton" />
+
+    <CheckBox
+        android:id="@+id/farnsworthCheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:text="Farnsworth"
+        app:layout_constraintStart_toEndOf="@+id/hideQSOCheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/stopButton" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="QSO text:"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/noisecheckBox" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="Tone (Hz):"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <SeekBar
+        android:id="@+id/toneControlSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="19dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/toneTextView" />
+
+    <EditText
+        android:id="@+id/generatedQSOEditText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginEnd="2dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:gravity="start|top"
+        android:inputType="text|textMultiLine|textNoSuggestions"
+        android:text="Click on Generate to create a random QSO. Then click Send to listen to the text being sent as Morse code."
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
+        android:typeface="sans"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/M3PlusButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView6"
+        app:layout_constraintVertical_bias="0.0"
+        app:layout_wrapBehaviorInParent="horizontal_only"
+        tools:visibility="visible" />
+
+    <Button
+        android:id="@+id/M1MinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="M1-"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/M2MinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="M2-"
+        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/M1MinusButton" />
+
+    <Button
+        android:id="@+id/M3MinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="M3-"
+        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/M2MinusButton" />
+
+    <Button
+        android:id="@+id/M4MinusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="2dp"
+        android:text="M4-"
+        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintStart_toEndOf="@+id/M3MinusButton" />
+
+    <Button
+        android:id="@+id/M1PlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="M1+"
+        app:layout_constraintBottom_toTopOf="@+id/M1MinusButton"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/M2PlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="M2+"
+        app:layout_constraintBottom_toTopOf="@+id/M2MinusButton"
+        app:layout_constraintStart_toEndOf="@+id/M1PlusButton" />
+
+    <Button
+        android:id="@+id/M3PlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="M3+"
+        app:layout_constraintBottom_toTopOf="@+id/M3MinusButton"
+        app:layout_constraintStart_toEndOf="@+id/M2PlusButton" />
+
+    <Button
+        android:id="@+id/M4PlusButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="M4+"
+        app:layout_constraintBottom_toTopOf="@+id/M4MinusButton"
+        app:layout_constraintStart_toEndOf="@+id/M3PlusButton" />
+
+    <Button
+        android:id="@+id/infoButton"
+        android:layout_width="66dp"
+        android:layout_height="49dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:contentDescription="Program information display"
+        android:textAlignment="center"
+        app:icon="@android:drawable/ic_dialog_info"
+        app:iconPadding="0dp"
+        app:layout_constraintStart_toEndOf="@+id/generateButton"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/toneTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginBottom="4dp"
+        android:text="Tone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView7" />
+
+    <TextView
+        android:id="@+id/speedTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="2dp"
+        android:text="13"
+        app:layout_constraintStart_toEndOf="@+id/textView4"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        app:layout_constraintEnd_toStartOf="@+id/generateButton"
+        app:layout_constraintStart_toEndOf="@+id/speedTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/speedSeekBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:max="50"
+        android:min="5"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/speedTextView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

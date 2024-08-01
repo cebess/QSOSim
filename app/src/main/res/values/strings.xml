@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">QSOSim</string>
+    <string name="info_data">This program was initially created on Android in 2016 by AD5EN - Charlie Bess and called QSOSender3.\nThe purpose of the program is to aid hams learning Morse code by enabling them to copy sounds similar to what they will hear on the air. The faster the code sent, the longer the QSO generated. You can paste text into the QSO text field as well. Use the M+ and M- keys to save and recall QSO text field.</string>
+</resources>
