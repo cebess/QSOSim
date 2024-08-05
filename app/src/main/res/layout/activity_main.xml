@@ -147,9 +147,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="2dp"
         android:text="M2-"
-        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/M1MinusButton" />
 
     <Button
@@ -157,9 +156,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="2dp"
         android:text="M3-"
-        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/M2MinusButton" />
 
     <Button
@@ -167,9 +165,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="2dp"
         android:text="M4-"
-        app:layout_constraintBottom_toTopOf="@+id/toneControlSeekBar"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
         app:layout_constraintStart_toEndOf="@+id/M3MinusButton" />
 
     <Button
