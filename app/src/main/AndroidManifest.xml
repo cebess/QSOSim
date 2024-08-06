@@ -30,6 +30,10 @@
             android:name=".MorsePlayerService"
             android:enabled="true"
             android:exported="false" />
+        <service
+            android:name=".QRMService"
+            android:enabled="true"
+            android:exported="false" />
     </application>
 
 </manifest>

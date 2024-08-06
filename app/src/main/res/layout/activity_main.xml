@@ -48,11 +48,10 @@
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <CheckBox
-        android:id="@+id/noisecheckBox"
+        android:id="@+id/QRNcheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginStart="2dp"
         android:text="QRN"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sendButton" />
@@ -62,30 +61,27 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
         android:text="Hide QSO"
-        app:layout_constraintStart_toEndOf="@+id/noisecheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/generateButton" />
+        app:layout_constraintStart_toEndOf="@+id/QRMcheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
 
     <CheckBox
         android:id="@+id/farnsworthCheckBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginTop="2dp"
         android:text="Farnsworth"
         app:layout_constraintStart_toEndOf="@+id/hideQSOCheckBox"
-        app:layout_constraintTop_toBottomOf="@+id/stopButton" />
+        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="2dp"
         android:text="QSO text:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/noisecheckBox" />
+        app:layout_constraintTop_toBottomOf="@+id/QRNcheckBox" />
 
     <TextView
         android:id="@+id/textView7"
@@ -120,6 +116,7 @@
         android:fontFamily="sans-serif"
         android:gravity="start|top"
         android:inputType="text|textMultiLine|textNoSuggestions"
+        android:scrollbars="vertical"
         android:text="Click on Generate to create a random QSO. Then click Send to listen to the text being sent as Morse code."
         android:textAlignment="viewStart"
         android:textSize="14sp"
@@ -175,7 +172,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="4dp"
         android:text="M1+"
         app:layout_constraintBottom_toTopOf="@+id/M1MinusButton"
         app:layout_constraintStart_toStartOf="parent" />
@@ -185,7 +181,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="4dp"
         android:text="M2+"
         app:layout_constraintBottom_toTopOf="@+id/M2MinusButton"
         app:layout_constraintStart_toEndOf="@+id/M1PlusButton" />
@@ -195,7 +190,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="4dp"
         android:text="M3+"
         app:layout_constraintBottom_toTopOf="@+id/M3MinusButton"
         app:layout_constraintStart_toEndOf="@+id/M2PlusButton" />
@@ -205,7 +199,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="2dp"
-        android:layout_marginBottom="4dp"
         android:text="M4+"
         app:layout_constraintBottom_toTopOf="@+id/M4MinusButton"
         app:layout_constraintStart_toEndOf="@+id/M3PlusButton" />
@@ -264,5 +257,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/speedTextView"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <CheckBox
+        android:id="@+id/QRMcheckBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="2dp"
+        android:text="QRM"
+        app:layout_constraintStart_toEndOf="@+id/QRNcheckBox"
+        app:layout_constraintTop_toBottomOf="@+id/sendButton" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
     TextView toneTextView;
     TextView speedTextView;
     CheckBox noisecheckBox;
+    CheckBox QRMcheckBox;
     CheckBox hideQSOCheckBox;
     CheckBox farnsworthCheckBox;
 
@@ -107,8 +108,9 @@ public class MainActivity extends AppCompatActivity {
         toneControlSeekBar= findViewById(R.id.toneControlSeekBar);
         speedSeekBar = findViewById(R.id.speedSeekBar);
         toneTextView = findViewById(R.id.toneTextView);
-        noisecheckBox= findViewById(R.id.noisecheckBox);
+        noisecheckBox= findViewById(R.id.QRNcheckBox);
         hideQSOCheckBox = findViewById(R.id.hideQSOCheckBox);
+        QRMcheckBox =findViewById(R.id.QRMcheckBox);
         farnsworthCheckBox = findViewById(R.id.farnsworthCheckBox);
 
         // add the click listeners
@@ -143,6 +145,23 @@ public class MainActivity extends AppCompatActivity {
                 Intent noiseServiceIntent = new Intent(this, MusicService.class);
                 stopService(noiseServiceIntent);
                 noiseServiceIntent = null;
+
+            }
+        });
+
+        QRMcheckBox.setOnClickListener(src -> {
+            savePref();
+            if (QRMcheckBox.isChecked()) {
+                Intent QRMServiceIntent= new Intent(this, QRMService.class);
+                // Start the MusicService using the Intent
+                startService(QRMServiceIntent);
+
+            }
+            else
+            {
+                Intent QRMServiceIntent = new Intent(this, QRMService.class);
+                stopService(QRMServiceIntent);
+                QRMServiceIntent = null;
 
             }
         });
@@ -206,8 +225,10 @@ public class MainActivity extends AppCompatActivity {
         Intent noiseServiceIntent = new Intent(this, MusicService.class);
         stopService(noiseServiceIntent);
         noiseServiceIntent = null;
+        Intent QRMServiceIntent = new Intent(this, QRMService.class);
+        stopService(QRMServiceIntent);
+        QRMServiceIntent = null;
         stopMorseService();
-
         super.onDestroy();
     }
 
