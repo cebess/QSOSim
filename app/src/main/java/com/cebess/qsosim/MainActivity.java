@@ -424,9 +424,9 @@ private void loadPref() {
     }
     //change the text field
     toneTextView.setText(Integer.toString(sendTone));
-    //set the SeekBar valiue
-    float toneFloat = (sendTone-500)/10;
-    toneControlSeekBar.setProgress((int) toneFloat);
+    //set the SeekBar value
+    int toneValue = (sendTone-500)/10;
+    toneControlSeekBar.setProgress(toneValue);
 
     if(sharedpreferences.contains(memory1String)) {
         //update memory entry
