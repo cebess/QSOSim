@@ -219,9 +219,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    @Override
-    protected void onDestroy() {
-        /// make sure to stop services that may be running
+    private void stop_services() {
         Intent noiseServiceIntent = new Intent(this, MusicService.class);
         stopService(noiseServiceIntent);
         noiseServiceIntent = null;
@@ -229,7 +227,35 @@ public class MainActivity extends AppCompatActivity {
         stopService(QRMServiceIntent);
         QRMServiceIntent = null;
         stopMorseService();
+    }
+    @Override
+    protected void onStop() {
+        /// stop any running services that may be running
+        stop_services();
+        super.onStop();
+    }
+    @Override
+    protected void onDestroy() {
+        /// make sure to stop services that may be running
+        stop_services();
         super.onDestroy();
+    }
+
+    @Override
+    protected void onStart() {
+        /// check to see if there are any services that need to be started
+        if (noisecheckBox.isChecked()) {
+            Intent noiseServiceIntent= new Intent(this, MusicService.class);
+            // Start the MusicService using the Intent
+            startService(noiseServiceIntent);
+        }
+        if (QRMcheckBox.isChecked()) {
+            Intent QRMServiceIntent= new Intent(this, QRMService.class);
+            // Start the MusicService using the Intent
+            startService(QRMServiceIntent);
+
+        }
+        super.onStart();
     }
 
     private void farnsworth_check()
