@@ -18,7 +18,7 @@ import java.text.ParseException;
  */
 public class RandomQSO extends RandomSentence
 {
-    private int xmitSpeed;
+    private final int xmitSpeed;
     private static final String noviceLicense   = "Novice";
     private static final String techLicense     = "Technician";
     private static final String generalLicense  = "General";

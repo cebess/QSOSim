@@ -1,10 +1,10 @@
 package com.cebess.qsosim;
 /**
  * This is the main for the QSOSim android application
- * Copyright &copy; 2016
- *      <a href="mailto:chas.bess@gmail.com">Charles Bess (AD5EN)</a>.
- * @version 1.1 August 2024
- *
+ * <li>"@Copyright 2016"</li>
+ * @author <a href="mailto:chas.bess@gmail.com">Charles Bess (AD5EN)</a>
+ * @since 1.1 August 2024
+ * @return the main activity for the app
  */
 
 import android.content.Context;
