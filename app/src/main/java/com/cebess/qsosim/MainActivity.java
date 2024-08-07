@@ -1,9 +1,9 @@
 package com.cebess.qsosim;
 /**
- * This is the main for the QSOSun android application
- * * Copyright &copy; 2016
+ * This is the main for the QSOSim android application
+ * Copyright &copy; 2016
  *      <a href="mailto:chas.bess@gmail.com">Charles Bess (AD5EN)</a>.
- * @version 3v3
+ * @version 1.1 August 2024
  *
  */
 
@@ -144,8 +144,6 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent noiseServiceIntent = new Intent(this, MusicService.class);
                 stopService(noiseServiceIntent);
-                noiseServiceIntent = null;
-
             }
         });
 
@@ -161,8 +159,6 @@ public class MainActivity extends AppCompatActivity {
             {
                 Intent QRMServiceIntent = new Intent(this, QRMService.class);
                 stopService(QRMServiceIntent);
-                QRMServiceIntent = null;
-
             }
         });
 
@@ -222,10 +218,8 @@ public class MainActivity extends AppCompatActivity {
     private void stop_services() {
         Intent noiseServiceIntent = new Intent(this, MusicService.class);
         stopService(noiseServiceIntent);
-        noiseServiceIntent = null;
         Intent QRMServiceIntent = new Intent(this, QRMService.class);
         stopService(QRMServiceIntent);
-        QRMServiceIntent = null;
         stopMorseService();
     }
     @Override
@@ -285,9 +279,8 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "The transmit speed must be between 5 and 50, inclusive.", Toast.LENGTH_SHORT).show();
                 initializeXmitField (13);
             } else {
-                RandomQSO myQSO = new RandomQSO();
-                String QSOString = myQSO.getQSO(XmitSpeed);
-                generatedQSOEditText.setText(QSOString);
+                RandomQSO myQSO = new RandomQSO(XmitSpeed);
+                generatedQSOEditText.setText(myQSO.toString());
             }
         } catch (IOException e) {
             Log.e(MainActivity.ProjectName,"IO exception: " + e.getMessage());

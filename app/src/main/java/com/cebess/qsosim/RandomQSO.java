@@ -18,6 +18,7 @@ import java.text.ParseException;
  */
 public class RandomQSO extends RandomSentence
 {
+    private int xmitSpeed;
     private static final String noviceLicense   = "Novice";
     private static final String techLicense     = "Technician";
     private static final String generalLicense  = "General";
@@ -392,13 +393,19 @@ public class RandomQSO extends RandomSentence
     /**
      * Create a grammar that can generate random QSO's.
      */
-    public RandomQSO()
+    public RandomQSO(int speed)
             throws ParseException, IOException
     {
         super(grammar);
+        xmitSpeed = speed;
         if (MainActivity.DEBUG && checkAllSymbols() > 0) {
             writeRules();
         }
+    }
+
+    @Override
+    public String toString() {
+        return(getQSO(xmitSpeed));
     }
 
     /**
