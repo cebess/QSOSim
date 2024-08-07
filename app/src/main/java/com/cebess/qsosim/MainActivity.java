@@ -293,9 +293,12 @@ public class MainActivity extends AppCompatActivity {
 
     // add the listeners
     // action for the Generate button
-    private final OnClickListener btnGenerateListener = v -> {
-        stopMorseService();
-        generateMessage();
+    private final OnClickListener btnGenerateListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            stopMorseService();
+            generateMessage();
+        }
     };
 
     // action for the saving button
