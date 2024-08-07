@@ -324,9 +324,12 @@ public class MainActivity extends AppCompatActivity {
     };
 
     // action for the stop button
-    private final OnClickListener btnStopListener = v -> {
-        stopMorseService();
-        };
+    private final OnClickListener btnStopListener = new OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            stopMorseService();
+        }
+    };
 
     private void stopMorseService() {
         if (morseServiceIntent!= null) {
