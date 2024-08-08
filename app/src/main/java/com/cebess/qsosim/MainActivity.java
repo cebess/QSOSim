@@ -32,7 +32,7 @@ import java.io.IOException;
 public class MainActivity extends AppCompatActivity {
 
     // global variables
-    public static String ProjectName;// = "QSOSim";
+    public static final String ProjectName = "QSOSim";
     public static final Boolean DEBUG = false; // used in the QSO generator
 
     // Declare the User Interface elements
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
     //variables
     public static boolean farnsworth = false;
     int XmitSpeed = 13;
-    int sendTone = 1000;
+    int sendTone = 850;
     Intent morseServiceIntent = null;
 
     // Declare the memory locations
@@ -80,7 +80,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ProjectName = getString(R.string.app_name);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
@@ -168,9 +167,16 @@ public class MainActivity extends AppCompatActivity {
         });
 
         farnsworthCheckBox.setOnClickListener(src -> {
-            savePref();
-            farnsworth_check();
-            stopMorseService();
+            if (XmitSpeed>18) {
+                if (farnsworthCheckBox.isChecked()) {
+                    farnsworthCheckBox.setChecked(false);
+                    generatedQSOEditText.setText(getString(R.string.farns));
+                }
+            } else {
+                savePref();
+                farnsworth_check();
+                stopMorseService();
+            }
         });
 
         toneControlSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -178,13 +184,16 @@ public class MainActivity extends AppCompatActivity {
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 progressChanged = progress;
+                //set the tone value
+                sendTone = 10*progressChanged+500;
+                //change the text field
+                toneTextView.setText(Integer.toString(sendTone));
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
             }
 
             public void onStopTrackingTouch(SeekBar seekBar) {
-                //Toast.makeText(MainActivity.this, "seek bar progress:" + progressChanged,Toast.LENGTH_SHORT).show();
                 //set the tone value
                 sendTone = 10*progressChanged+500;
                 //change the text field
@@ -199,6 +208,10 @@ public class MainActivity extends AppCompatActivity {
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser){
                 progressChanged = progress;
+                //set the speed value
+                XmitSpeed = progressChanged;
+                //change the text field
+                speedTextView.setText(Integer.toString(XmitSpeed));
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -212,6 +225,10 @@ public class MainActivity extends AppCompatActivity {
                 speedTextView.setText(Integer.toString(XmitSpeed));
                 savePref();
                 stopMorseService();
+                if (XmitSpeed>18) {
+                    farnsworthCheckBox.setChecked(false);
+                    farnsworth_check();
+                }
             }
         });
     }
