@@ -9,7 +9,7 @@ class CatanIsland(object):
         self._islandInt = islandInt
     
     def __repr__(self):
-        return(f"Island {self.islandInt} containing: {self.islandDesc()}")
+        return(f"Island {self._islandInt} containing: {self.islandDesc()}")
     
     def islandDesc(self):
         return catanFaces[self._resource]
@@ -33,6 +33,7 @@ class CatanIslandChain(list):
 def main():
     temp=CatanIslandChain()
     print(temp[0])
+    print("done")
 
 if __name__ == "__main__":
     sys.exit(int(main() or 0))
