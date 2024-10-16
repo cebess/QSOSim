@@ -1,11 +1,12 @@
 {
 	"folders": [
 		{
+			"name": "VS Pico",
 			"path": "."
 		},
 		{
 			"name": "Mpy Remote Workspace",
-			"uri": "pico:"
+			"uri": "pico:/"
 		}
 	],
 	"settings": {
